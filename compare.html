@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Compare Results - Garuda</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <h1 class="glitch">🔍 Comparison Results</h1>
+
+  {% if message %}
+    <p class="subtitle">{{ message }}</p>
+  {% else %}
+    <section class="result">
+      <h3 class="subtitle">🆚 Comparing: {{ scan1.target }} ({{ scan1.time }}) ➡ {{ scan2.time }}</h3>
+
+      <div class="importance">
+        <h4 style="color: #00ff00;">🟢 New Findings (Now Open):</h4>
+        <ul>
+          {% for item in diff.new %}
+            <li style="color: #aaffaa;">➕ {{ item|safe }}</li>
+          {% endfor %}
+          {% if not diff.new %}
+            <li>No new services found.</li>
+          {% endif %}
+        </ul>
+      </div>
+
+      <div class="importance">
+        <h4 style="color: #ff4444;">🔴 Removed Services (Now Closed):</h4>
+        <ul>
+          {% for item in diff.gone %}
+            <li style="color: #ffaaaa;">➖ {{ item|safe }}</li>
+          {% endfor %}
+          {% if not diff.gone %}
+            <li>No removals found.</li>
+          {% endif %}
+        </ul>
+      </div>
+    </section>
+  {% endif %}
+
+  <div style="text-align: center; margin-top: 30px;">
+    <a href="/" style="text-decoration: none; font-size: 18px;">⬅ Back to Home</a>
+  </div>
+
+</body>
+</html>
+

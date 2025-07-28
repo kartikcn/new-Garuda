@@ -1,0 +1,43 @@
+{
+    "scanme.nmap.org": {
+        "results": [
+            "<strong>22/tcp</strong> is <strong>OPEN</strong> and running <strong>SSH</strong>. SSH login \u2013 secure this with key-based auth.",
+            "<strong>25/tcp</strong> is <strong>FILTERED</strong> and running <strong>SMTP</strong>. SMTP \u2013 use TLS if running.",
+            "<strong>80/tcp</strong> is <strong>OPEN</strong> and running <strong>HTTP</strong>. HTTP \u2013 serve HTTPS instead.",
+            "<strong>135/tcp</strong> is <strong>FILTERED</strong> and running <strong>MSRPC</strong>. Check this port's service and ensure it's secure.",
+            "<strong>139/tcp</strong> is <strong>FILTERED</strong> and running <strong>NETBIOS-SSN</strong>. Check this port's service and ensure it's secure.",
+            "<strong>445/tcp</strong> is <strong>FILTERED</strong> and running <strong>MICROSOFT-DS</strong>. Check this port's service and ensure it's secure.",
+            "<strong>9929/tcp</strong> is <strong>OPEN</strong> and running <strong>NPING-ECHO</strong>. Check this port's service and ensure it's secure.",
+            "<strong>31337/tcp</strong> is <strong>OPEN</strong> and running <strong>ELITE</strong>. Check this port's service and ensure it's secure."
+        ],
+        "time": "2025-04-25 00:27:56"
+    },
+    "Scanne.nmal.": {
+        "results": [],
+        "time": "2025-04-22 23:40:03"
+    },
+    "Scanne.nmap.org": {
+        "results": [
+            "<strong>22/tcp</strong> is <strong>OPEN</strong> and running <strong>SSH</strong>. SSH login \u2013 secure this with key-based auth.",
+            "<strong>70/tcp</strong> is <strong>CLOSED</strong> and running <strong>GOPHER</strong>. Check this port's service and ensure it's secure.",
+            "<strong>80/tcp</strong> is <strong>OPEN</strong> and running <strong>HTTP</strong>. HTTP \u2013 serve HTTPS instead.",
+            "<strong>113/tcp</strong> is <strong>CLOSED</strong> and running <strong>IDENT</strong>. Check this port's service and ensure it's secure.",
+            "<strong>443/tcp</strong> is <strong>OPEN</strong> and running <strong>HTTPS</strong>. HTTPS \u2013 ensure SSL cert is valid.",
+            "<strong>31337/tcp</strong> is <strong>CLOSED</strong> and running <strong>ELITE</strong>. Check this port's service and ensure it's secure."
+        ],
+        "time": "2025-04-22 23:40:39"
+    },
+    "Scanme.nmap.org": {
+        "results": [
+            "<strong>22/tcp</strong> is <strong>OPEN</strong> and running <strong>SSH</strong>. SSH login \u2013 secure this with key-based auth.",
+            "<strong>25/tcp</strong> is <strong>FILTERED</strong> and running <strong>SMTP</strong>. SMTP \u2013 use TLS if running.",
+            "<strong>80/tcp</strong> is <strong>OPEN</strong> and running <strong>HTTP</strong>. HTTP \u2013 serve HTTPS instead.",
+            "<strong>135/tcp</strong> is <strong>FILTERED</strong> and running <strong>MSRPC</strong>. Check this port's service and ensure it's secure.",
+            "<strong>139/tcp</strong> is <strong>FILTERED</strong> and running <strong>NETBIOS-SSN</strong>. Check this port's service and ensure it's secure.",
+            "<strong>445/tcp</strong> is <strong>FILTERED</strong> and running <strong>MICROSOFT-DS</strong>. Check this port's service and ensure it's secure.",
+            "<strong>9929/tcp</strong> is <strong>OPEN</strong> and running <strong>NPING-ECHO</strong>. Check this port's service and ensure it's secure.",
+            "<strong>31337/tcp</strong> is <strong>OPEN</strong> and running <strong>ELITE</strong>. Check this port's service and ensure it's secure."
+        ],
+        "time": "2025-04-22 23:44:09"
+    }
+}

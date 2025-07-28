@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Garuda: The Weapon</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- 👾 Hacker Title -->
+  <h1 class="glitch">GARUDA: THE WEAPON</h1>
+
+  <!-- 🌓 Light/Dark Toggle -->
+  <button id="themeToggle" class="toggle-btn">🌙 Light Mode</button>
+
+  <!-- 🦅 Eagle Logo -->
+  <div class="eagle-header">
+    <img src="{{ url_for('static', filename='images/garuda.png') }}" alt="Garuda" class="eagle-img">
+  </div>
+
+  <!-- 🧭 Navigation -->
+  <nav class="top-nav">
+    <ul>
+    <li><a href="/">Home</a></li>
+    <li><a href="#" onclick="showSection('about')">About</a></li>
+    <li><a href="#" onclick="showSection('contact')">Contact</a></li>
+    <li><a href="#" onclick="showSection('help')">Help</a></li>
+  </ul>
+</nav>
+
+  <!-- Header Subtitle -->
+  <header>
+    <p class="subtitle">Your Personal Network Vulnerability Scanner</p>
+  </header>
+
+  <!-- 🔍 Scan Form -->
+  <main>
+    <section class="scanner">
+      <form method="POST" action="/scan" class="scan-form">
+        <input type="text" name="target" placeholder="Enter IP or Domain" required />
+        <label style="margin-left: 10px;">
+          <input type="checkbox" name="advanced"> Advanced Scan
+        </label>
+      </form>
+    </section>
+
+<!-- 🔍 Scan Buttons -->
+<div class="scan-buttons">
+  <button id="advanced-scan" class="scan-btn">Advanced Scan</button>
+  <button id="scan" class="scan-btn">Scan</button>
+</div>
+<!-- 📊 Compare Button -->
+<section class="compare-scans">
+  <form method="GET" action="/compare">
+    <button type="submit">📊 Compare Last Two Scans</button>
+  </form>
+</section>
+
+    <!-- 📚 Info Grid -->
+    <section class="info-grid">
+      <div class="importance">
+        <h3>🔐 Why Network Scanning Matters</h3>
+        <ul>
+          <li>Detect open ports and exposed services</li>
+          <li>Understand what’s running on your network</li>
+          <li>Protect systems before attackers strike</li>
+        </ul>
+      </div>
+
+      <div class="importance">
+        <h3>🛡 Why Cybersecurity is Important</h3>
+        <ul>
+          <li>Safeguards sensitive personal and business data</li>
+          <li>Prevents unauthorized access and attacks</li>
+          <li>Builds trust in digital systems and services</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ✅ Scan Results -->
+    {% if results %}
+    <section class="result">
+      <h3>📄 Scan Results for {{ target }}</h3>
+      <div class="btn-group">
+        <button onclick="copyResult()">📋 Copy</button>
+        <button onclick="savePDF()">💾 Save as PDF</button>
+      </div>
+      <ul id="scanOutput">
+        {% for res in results %}
+          <li>{{ res|safe }}</li>
+        {% endfor %}
+      </ul>
+    </section>
+    {% endif %}
+  </main>
+<!-- 🔍 About Section -->
+<section id="about" class="info-section hidden-section">
+  <h2>About Garuda</h2>
+  <p>Garuda is a futuristic, web-based port scanner that provides insights from Nmap in a visual and accessible way.</p>
+</section>
+
+<!-- 📫 Contact Section -->
+<section id="contact" class="info-section hidden-section">
+  <h2>Contact Us</h2>
+  <p>Have a question or feature idea? Reach out below and we'll get back to you.</p>
+
+  <form action="k9301340199@gmail.com" method="POST" class="contact-form">
+    <input type="text" name="name" placeholder="Your Name" required>
+    <input type="email" name="_replyto" placeholder="Your Email" required>
+    <input type="text" name="phone" placeholder="Phone Number (optional)">
+    <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+    <button type="submit">📨 Submit</button>
+  </form>
+</section>
+
+<!-- ❓ Help Section -->
+<section id="help" class="info-section hidden-section">
+  <h2>Help</h2>
+  <p>If you're not sure what a result means, check the docs or contact support!</p>
+</section>
+
+  <!-- 🔻 Footer -->
+  <footer>
+    <div class="footer-content">
+      <p>Made with ❤ by <strong>Kartik Choubey</strong> • Garuda Project • 2025</p>
+      <div class="social-links">
+        <a href="https://instagram.com/silver_shadesk" target="_blank">
+          <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram" />
+        </a>
+        <a href="https://linkedin.com/in/kartik-choubey-049035265" target="_blank">
+          <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn" />
+        </a>
+        <a href="https://github.com/kar213" target="_blank">
+          <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="GitHub" />
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ⚙️ Script -->
+  <script>
+    const toggle = document.getElementById('themeToggle');
+    toggle.addEventListener('click', () => {
+      document.body.classList.toggle('light-mode');
+      toggle.textContent = document.body.classList.contains('light-mode') ? '🌚 Dark Mode' : '🌙 Light Mode';
+    });
+
+    function copyResult() {
+      const text = document.getElementById("scanOutput").innerText;
+      navigator.clipboard.writeText(text).then(() => alert("Copied to clipboard!"));
+    }
+
+    function savePDF() {
+      window.print();
+    }
+  </script>
+<script>
+  function showSection(id) {
+    const sections = document.querySelectorAll('.info-section');
+    sections.forEach(section => section.style.display = 'none');
+
+    const active = document.getElementById(id);
+    if (active) {
+      active.style.display = 'block';
+      active.scrollIntoView({ behavior: "smooth" });
+    }
+  }
+</script>
+
+</body>
+</html>
